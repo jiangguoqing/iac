@@ -65,7 +65,7 @@ jobs:
  
      - name: Terraform Apply
        #if: github.ref == 'refs/heads/dev' && github.event_name == 'merge_request'
-       if: github.event.pull_request.merged == true
+       if: github.event.pull_request.merged == true #it's not right 
        run: terraform apply -auto-approve -input=false
 
 
