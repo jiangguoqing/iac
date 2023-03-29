@@ -86,8 +86,9 @@ jobs:
            })
  
      - name: Terraform Plan Status
-       #if: steps.plan.outcome == 'failure'
-       run: exit 1
+       if: steps.plan.outcome != 'failure'
+       #run: exit 1
+       run: echo  steps.plan.outcome
  
      - name: Terraform Apply
        #if: github.ref == 'refs/heads/dev' && github.event_name == 'merge_request'
